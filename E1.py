@@ -9,17 +9,17 @@
          所以递归表达式为：A(N, M) = M*(M-1)**(N-1) - A(N-1,M)
 
 '''
-# def number(M, N):
-#     if N == 1:
-#         return M
-#     if N == 2:
-#         return M*(M-1)
-#     else:
-#         return M*(M-1)**(N-1)-number(M, N-1)
-#
-# if __name__ == '__main__':
-#     [M,N]=[int(i) for i in input().split()]
-#     print(number(M, N))
+def number(M, N):
+    if N == 1:
+        return M
+    if N == 2:
+        return M*(M-1)
+    else:
+        return M*(M-1)**(N-1)-number(M, N-1)
+
+if __name__ == '__main__':
+    [M,N]=[int(i) for i in input().split()]
+    print(number(M, N))
 
 #=========================================================================================
 '''
