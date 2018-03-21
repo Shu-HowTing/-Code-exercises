@@ -17,15 +17,15 @@ def search(i, nums):
     if i < 0: # 没有商家了，我们要开始销赃
         return 0
     return max(search(i - 1, nums), nums[i] + search(i - 2, nums))
-def rob(num):
+def rob1(num):
     return search(len(num) - 1, num)
 
 if __name__ == '__main__':
     num = [6, 7, 8, 9, 9, 4, 3, 38]
-    print(rob(num))
+    print(rob1(num))
 
-
-def rob( nums):
+# 空间复杂度O(1)
+def rob2( nums):
     """
     :type nums: List[int]
     """
@@ -40,8 +40,46 @@ def rob( nums):
         dp[i] = max(dp[i - 1], nums[i] + dp[i - 2])
     return dp[-1]
 num = [6, 7, 8, 9, 9, 4, 3, 38]
-print(rob(num))
+print(rob2(num))
 
 #   变形：
 #   一个圆上有n座房子，其它条件都一样，只是第1座房子和第n座房子变成相邻的了，也就是说不能同时抢了，
 #   那么最优解就变成 第1座房子到第n-1座房子能抢的最多的钱 或者 第2座房子到第n座房子能抢的钱了。
+def rob_circle(nums):
+    if len(nums) == 0:
+        return  0
+    if len(nums) == 1:
+        return nums[0]
+    dp_1 = [0 for i in range(len(nums)-1)]
+    dp_1[0] = nums[0]
+    dp_1[1] = max(nums[0], nums[1])
+    for i in range(2, len(nums)-1):
+        dp_1[i] = max(dp_1[i - 1], nums[i] + dp_1[i - 2])
+        Max = dp_1[-1]
+    dp_2 = [0 for i in range(len(nums)-1)]
+    dp_2[0] = nums[1]
+    dp_2[1] = max(nums[1], nums[2])
+    for i in range(2, len(nums)-1):
+        dp_2[i] = max(dp_2[i - 1], nums[i+1] + dp_2[i - 2])
+    return max(dp_1[-1],dp_2[-1])
+num = [6, 7, 8, 9, 9, 4, 3, 38]
+print(rob_circle(num))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

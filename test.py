@@ -122,29 +122,51 @@ import numpy as np
 #     print(start)
 # duplication([2,3,5,4,3,1,6,7])
 
-a = [3,2,4,6]
-b = [1,4,5,7,8,9]
-l_a = len(a)
-l_b = len(b)
-for x in b:
-    a.append(0)
-l = len(a)
-
-for i in  range(l-1, -1, -1):
-    if a[l_a-1] >= b[l_b-1]  and l_a > 0:
-        a[i] = a[l_a-1]
-        l_a-=1
-    else:
-        a[i] = b[l_b - 1]
-        l_b -=1
+# a = [3,2,4,6]
+# b = [1,4,5,7,8,9]
+# l_a = len(a)
+# l_b = len(b)
+# for x in b:
+#     a.append(0)
+# l = len(a)
+#
+# for i in  range(l-1, -1, -1):
+#     if a[l_a-1] >= b[l_b-1]  and l_a > 0:
+#         a[i] = a[l_a-1]
+#         l_a-=1
+#     else:
+#         a[i] = b[l_b - 1]
+#         l_b -=1
+# print(a)
+#
+#
+#
+# def numberOfOne(number):
+#     count = 0
+#     while number > 0:
+#         if number & 1 :
+#             count += 1
+#         number = number >> 1
+#     print(count)
+# numberOfOne(9)
+#
+# print(5^6) # 异或
+#
+#
+import sys
+#a= sys.stdin.readline().split()
+# for line in sys.stdin:
+#     a = line.split()
+#     print(int(a[0])+int(a[1]))
+# line = sys.stdin.readline()
+# # a, b = map(int,line.split())
+# # print(a+b)
+# print(line)
+a = []
+for line in sys.stdin:
+    a.append(line)
 print(a)
-
-
-
-
-
-
-
-
+#
+# print(int(a[0]),int(a[1]))
 
 

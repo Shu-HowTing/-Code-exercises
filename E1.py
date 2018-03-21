@@ -10,12 +10,22 @@
 
 '''
 def number(M, N):
+    f = [0 for i in range(N+1)]
+    f[1] = M
+    f[2] = M * (M - 1)
     if N == 1:
-        return M
+        return f[1]
     if N == 2:
-        return M*(M-1)
+        return f[2]
     else:
-        return M*(M-1)**(N-1)-number(M, N-1)
+        # return M*(M-1)**(N-1)-number(M, N-1)
+        # 空间复杂度O(n)
+        for i in range(3,N+1):
+            f[i] = M*(M-1)**(i-1) - f[i-1]
+        return f[N]
+
+
+
 
 if __name__ == '__main__':
     [M,N]=[int(i) for i in input().split()]
