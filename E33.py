@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 # Author: 小狼狗
 
-
+'''
+    求数组中逆序对的个数
+'''
 # class AntiOrder:
 #     def count(self, A):
 #         self.rNums = 0

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # Author: 小狼狗
+
 #找出一个有序数组中距离给定数值最近的数
 def bi_search(L,val):
     low = 0

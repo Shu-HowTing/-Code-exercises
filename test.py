@@ -162,11 +162,84 @@ import sys
 # # a, b = map(int,line.split())
 # # print(a+b)
 # print(line)
-a = []
-for line in sys.stdin:
-    a.append(line)
-print(a)
-#
+# a = []
+# for line in sys.stdin:
+#     a.append(line)
+# print(a)
 # print(int(a[0]),int(a[1]))
+def merge(left,right):
+    i = j = 0
+    c = []
+    while i<len(left) and j<len(right):
+        if left[i] < right[j]:
+            c.append(left[i])
+            i+=1
+        else:
+            c.append(right[j])
+            j+=1
+    c += left[i:]
+    c += right[j:]
+    return c
+
+def merge_sort(L):
+    if len(L)<=1:
+        return L
+    mid = len(L)//2
+    left = merge_sort(L[:mid])
+    right = merge_sort(L[mid:])
+    return merge(left, right)
+if __name__ == '__main__':
+    L = [7,4,9,1,3,0,5]
+    print(merge_sort(L))
+
+
+def partition(L,low,high):
+    pivot = L[low]
+    while low<high:
+        while low<high and L[high]>pivot:
+            high-=1
+        L[low] = L[high]
+        while low < high and L[low] <= pivot:
+            low += 1
+        L[high] = L[low]
+    L[low] = pivot
+    return low
+
+
+def quick_sort(L,start,end):
+    if start < end:
+        rank = partition(L,start,end)
+        quick_sort(L,start,rank-1)
+        quick_sort(L,rank+1,end)
+
+if __name__ == '__main__':
+    L = [7,4,9,1,3,0,5]
+    quick_sort(L,0,len(L)-1)
+    print(L)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
